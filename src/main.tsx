@@ -1,7 +1,8 @@
 import { FC } from "react";
+import { Text } from "react-native";
 
 const Main: FC = () => {
-    return <></>
-}
+  return <Text>some ra</Text>;
+};
 
 export default Main;
