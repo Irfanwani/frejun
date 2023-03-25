@@ -8,6 +8,11 @@
     ],
     "android": {
       "package": "com.frejun"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b25fae83-2880-4e93-8cc4-4fc63b8b8bdf"
+      }
     }
   }
 }
