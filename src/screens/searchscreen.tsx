@@ -17,6 +17,8 @@ const SearchScreen: FC = () => {
 
   return (
     <FlatList
+      automaticallyAdjustKeyboardInsets
+      keyboardDismissMode="none"
       showsVerticalScrollIndicator={false}
       style={styles.flatlist}
       data={data}
