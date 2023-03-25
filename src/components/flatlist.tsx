@@ -7,7 +7,7 @@ export const renderItem = ({ item }) => {
     <View style={styles.card}>
       <Image style={styles.image} source={{ uri: item.image_url }} />
       <View style={styles.description}>
-        <Text>{item.tagline}</Text>
+        <Text style={styles.title}>{item.tagline}</Text>
         <Text numberOfLines={5} ellipsizeMode="tail">
           {item.description}
         </Text>

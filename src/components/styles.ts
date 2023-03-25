@@ -1,9 +1,16 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const { height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   flatlist: {
     padding: 20,
     marginBottom: 10,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 5,
   },
   description: {
     paddingHorizontal: 50,
@@ -21,7 +28,7 @@ const styles = StyleSheet.create({
     width: 30,
   },
   loader: {
-    flex: 1,
+    height: height - 200,
     justifyContent: "center",
     alignItems: "center",
   },
