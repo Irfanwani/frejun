@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     width: 30,
   },
   loader: {
-    height: height - 200,
+    paddingBottom: 20,
     justifyContent: "center",
     alignItems: "center",
   },

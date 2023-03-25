@@ -8,6 +8,15 @@ const apiSlice = createApi({
   endpoints: (builder) => ({
     getbeers: builder.query({
       query: ({ page, per_page }) => `?page=${page}&per_page=${per_page}`,
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge(currentCacheData, responseData, otherArgs) {
+        if (!otherArgs.arg.append) {
+          return responseData;
+        }
+        currentCacheData.push(...responseData);
+      },
     }),
   }),
 });

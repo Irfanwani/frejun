@@ -10,9 +10,10 @@ const MainScreen: FC = () => {
   const [loading, setLoading] = useState(false);
 
   const [page, setPage] = useState(1);
+  const [append, setAppend] = useState(false);
 
   const { data, isLoading, isFetching, refetch } = useGetbeersQuery(
-    { page, per_page: 5 },
+    { page, per_page: 5, append },
     { refetchOnMountOrArgChange: true, refetchOnFocus: true }
   );
 
@@ -22,13 +23,20 @@ const MainScreen: FC = () => {
 
   const getLatestData = () => {
     setLoading(true);
-    if (page == 1) refetch();
-    else setPage(1);
+    setAppend(false);
+    setPage((prev) => prev + 1);
   };
 
   const changeScroll = () => {
     setScroll(true);
   };
+  const getMoredata = () => {
+    if (!scroll) return;
+    setAppend(true);
+    setPage((prev) => prev + 1);
+    setScroll(false);
+  };
+
   return (
     <FlatList
       refreshing={loading}
@@ -39,6 +47,8 @@ const MainScreen: FC = () => {
       data={data}
       renderItem={renderItem}
       ListEmptyComponent={isFetching ? <Loader /> : <Empty />}
+      onEndReached={getMoredata}
+      ListFooterComponent={isFetching && scroll ? <Loader /> : null}
     />
   );
 };
