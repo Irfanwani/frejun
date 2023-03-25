@@ -4,6 +4,7 @@ import styles from "./styles";
 import { BeerType } from "../store/types";
 import { SearchHeaderProps } from "./types";
 import Octicons from "@expo/vector-icons/Octicons";
+import Antdesign from "@expo/vector-icons/AntDesign";
 
 export const renderItem = ({ item }: { item: BeerType }) => {
   return (
@@ -51,14 +52,30 @@ export const SearchHeader: FC<SearchHeaderProps> = ({
   const changeSort = () => {
     setSort((prev) => !prev);
   };
+
+  const resetSearch = () => {
+    setValue("");
+  };
   return (
     <View style={styles.searchview}>
-      <TextInput
-        // style={styles.searchbar}
-        placeholder="Search..."
-        value={value}
-        onChangeText={setValue}
-      />
+      <View style={styles.searchbar}>
+        <Octicons name="search" size={20} style={styles.searchicons} />
+        <TextInput
+          style={styles.searchinput}
+          placeholder="Search By Name"
+          value={value}
+          onChangeText={setValue}
+        />
+        {value ? (
+          <Antdesign
+            onPress={resetSearch}
+            name="closecircleo"
+            size={20}
+            style={styles.searchicons}
+          />
+        ) : null}
+      </View>
+
       <Octicons
         onPress={changeSort}
         name={sort ? "sort-desc" : "sort-asc"}

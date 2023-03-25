@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 
-const { height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   flatlist: {
@@ -44,7 +44,24 @@ const styles = StyleSheet.create({
   },
   searchview: {
     flexDirection: "row",
-    padding: 10,
+    paddingVertical: 10,
+    alignItems: "center",
+  },
+  searchbar: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "teal",
+    borderRadius: 40,
+    marginRight: 20,
+    width: width / 1.4,
+  },
+  searchicons: {
+    paddingHorizontal: 10,
+  },
+  searchinput: {
+    width: width / 1.4 - 80,
+    paddingVertical: 10,
   },
 });
 
