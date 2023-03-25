@@ -42,6 +42,10 @@ const styles = StyleSheet.create({
     padding: 30,
     color: "grey",
   },
+  searchview: {
+    flexDirection: "row",
+    padding: 10,
+  },
 });
 
 export default styles;

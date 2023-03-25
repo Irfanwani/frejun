@@ -1,7 +1,9 @@
 import { FC } from "react";
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, TextInput } from "react-native";
 import styles from "./styles";
 import { BeerType } from "../store/types";
+import { SearchHeaderProps } from "./types";
+import Octicons from "@expo/vector-icons/Octicons";
 
 export const renderItem = ({ item }: { item: BeerType }) => {
   return (
@@ -36,6 +38,33 @@ export const searchRenderItem = ({ item }) => {
             )
         )}
       </View>
+    </View>
+  );
+};
+
+export const SearchHeader: FC<SearchHeaderProps> = ({
+  value,
+  setValue,
+  sort,
+  setSort,
+}) => {
+  const changeSort = () => {
+    setSort((prev) => !prev);
+  };
+  return (
+    <View style={styles.searchview}>
+      <TextInput
+        // style={styles.searchbar}
+        placeholder="Search..."
+        value={value}
+        onChangeText={setValue}
+      />
+      <Octicons
+        onPress={changeSort}
+        name={sort ? "sort-desc" : "sort-asc"}
+        size={30}
+        color="teal"
+      />
     </View>
   );
 };
