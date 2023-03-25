@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator<RootNavigatorProps>();
 const Main: FC = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator screenOptions={{ headerTitleAlign: "center" }}>
         <Tab.Screen
           options={{
             tabBarLabel: "Home",

@@ -22,10 +22,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 20,
     marginBottom: 20,
+    alignItems: "center",
   },
   image: {
     height: 130,
     width: 30,
+  },
+  planet: {
+    width: 70,
+    aspectRatio: 1,
   },
   loader: {
     paddingBottom: 20,
